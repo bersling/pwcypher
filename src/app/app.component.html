@@ -1,5 +1,20 @@
 <notify></notify>
-<input type="password" autocomplete="off" placeholder="text" [(ngModel)]="text"><br><br>
-<input type="password" autocomplete="off" placeholder="secret" [(ngModel)]="secret"><br><br>
-<button (click)="encrypt(text, secret)">Encrypt</button>
-<button (click)="decrypt(text, secret)">Decrypt</button>
+<input type="password"
+       autocomplete="off"
+       placeholder="text"
+       [(ngModel)]="text"><br><br>
+<input type="password"
+       autocomplete="off"
+       placeholder="secret"
+       [(ngModel)]="secret"><br><br>
+<button (click)="decrypt(text, secret)"
+        data-clipboard-target="#output">Decrypt</button><br><br>
+<input type="password"
+       autocomplete="off"
+       placeholder="secret validation"
+       [(ngModel)]="secretValidation"><br><br>
+<button (click)="encrypt(text, secret)"
+        data-clipboard-target="#output">Encrypt</button>
+<div id="output">
+    {{output}}
+</div>
