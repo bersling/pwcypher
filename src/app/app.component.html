@@ -8,7 +8,11 @@
        placeholder="secret"
        [(ngModel)]="secret"><br><br>
 <button (click)="decrypt(text, secret)"
-        data-clipboard-target="#output">Decrypt</button><br><br>
+        data-clipboard-target="#output">Decrypt</button>
+<div class="hspace"></div>
+<button (click)="encryptWithoutValidation(text, secret)"
+        data-clipboard-target="#output">Encrypt Without Validation</button>
+<br><br>
 <input type="password"
        autocomplete="off"
        placeholder="secret validation"
@@ -16,5 +20,5 @@
 <button (click)="encrypt(text, secret)"
         data-clipboard-target="#output">Encrypt</button>
 <div id="output">
-    {{output}}
+        {{output}}
 </div>

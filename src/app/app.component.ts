@@ -32,14 +32,18 @@ export class AppComponent implements OnInit {
 
   encrypt(text: string, secret: string) {
     if (secret === this.secretValidation) {
-      const resp = this.cypherService.encrypt(text, secret);
-      if (resp.err == null) {
-        this.onEncryptAndDecrypt(resp.encrypted);
-      } else {
-        this.notifyService.error(resp.err);
-      }
+      this.encryptWithoutValidation(text, secret);
     } else {
       this.notifyService.error(`Secrets don't match`);
+    }
+  }
+
+  encryptWithoutValidation(text, secret) {
+    const resp = this.cypherService.encrypt(text, secret);
+    if (resp.err == null) {
+      this.onEncryptAndDecrypt(resp.encrypted);
+    } else {
+      this.notifyService.error(resp.err);
     }
   }
 
